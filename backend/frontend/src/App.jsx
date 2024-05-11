@@ -17,7 +17,7 @@ function App() {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get(`http://localhost:3001/auth/verify`)
+    axios.get(`https://bookstore-ruby-rho.vercel.app/auth/verify`)
   
     .then(res => {
       if(res.data.login) {
