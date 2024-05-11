@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const Logout = ({setRole}) => {
     const navigate = useNavigate()
   useEffect(() => {
-    axios.get(`http://localhost:3001/auth/logout`)
+    axios.get(`https://book-store-omega-drab.vercel.app/auth/logout`)
     .then(res => {
         if(res.data.logout) {
             setRole('')

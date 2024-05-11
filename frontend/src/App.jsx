@@ -17,7 +17,7 @@ function App() {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get(`https://book-store-five-iota.vercel.app/auth/verify`)
+    axios.get(`https://book-store-omega-drab.vercel.app/auth/verify`)
   
     .then(res => {
       if(res.data.login) {
