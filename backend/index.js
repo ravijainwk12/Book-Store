@@ -9,8 +9,9 @@ import { bookRouter } from './routes/book.js'
 import { Book } from './models/Book.js'
 import { Student } from './models/Student.js'
 import { Admin } from './models/Admin.js'
-
+import path from 'path';
 const app = express()
+
 app.use(express.json())
 app.use(cors({
     origin: ['http://localhost:5173'],
@@ -32,7 +33,13 @@ app.get('/dashboard', async (req, res) => {
         return res.json(err)
     }
 })
- 
+
+app.get("/", (req, res) => { 
+    app.use(express.static(path.resolve(__dirname, "frontend", "build")));
+ res.sendFile(path.resolve(__dirname, "frontend", "build", "index.html"));
+ }
+);
+
 app.listen(process.env.PORT, () => {
     console.log("Server is Running");
 })

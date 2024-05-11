@@ -1,29 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import  {useNavigate, useParams} from 'react-router-dom'
 
-const EditBook = () => {
+import React, { useState } from 'react'
+import axios from 'axios'
+import  {useNavigate} from 'react-router-dom'
+
+const AddBook = () => {
     const [name, setName] = useState('')
     const [author, setAuthor] = useState('')
     const [imageUrl, setImageUrl] = useState('')
     const navigate = useNavigate()
-    const {id} = useParams()
-
-    useEffect(() => {
-        axios.get('http://localhost:3001/book/book/'+id)
-        .then(res => { 
-            setName(res.data.name)
-            setAuthor(res.data.author)
-            setImageUrl(res.data.imageUrl)
-        })
-        .catch(err => console.log(err))
-    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.put('http://localhost:3001/book/book/'+id, {name, author, imageUrl})
+        axios.post(`${window.location.origin}/book/add`, {name, author, imageUrl})
         .then(res => { 
-            if(res.data.updated) {
+            if(res.data.added) {
                 navigate('/books')
             }
             else {
@@ -36,26 +26,26 @@ const EditBook = () => {
   return (
     <div className="student-form-container">
       <form className="student-form" onSubmit={handleSubmit}>
-        <h2>Edit Book</h2>
+        <h2>Add Book</h2>
         <div className="form-group">
           <label htmlFor="book">Book Name:</label>
-          <input type="text" id="book" name="book"  value={name}
+          <input type="text" id="book" name="book" 
           onChange={(e) => setName(e.target.value)}/>
         </div>
         <div className="form-group">
           <label htmlFor="author">Author Name:</label>
-          <input type="text" id="author" name="author" value ={author}
+          <input type="text" id="author" name="author" 
           onChange={(e) => setAuthor(e.target.value)}/>
         </div>
         <div className="form-group">
           <label htmlFor="image">Image URL:</label>
-          <input type="text" id="image" name="image" value={imageUrl}
+          <input type="text" id="image" name="image" 
           onChange={(e) => setImageUrl(e.target.value)}/>
         </div>
-        <button type="submit">Update </button>
+        <button type="submit">Add </button>
       </form>
     </div>
   )
 }
 
-export default EditBook;
+export default AddBook ; 
