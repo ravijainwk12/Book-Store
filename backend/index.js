@@ -1,8 +1,11 @@
-import express from 'express'
-import dotenv from 'dotenv'
+import express from 'express' ;
+import dotenv from 'dotenv' ;
+dotenv.config( );
+import './db.js';
+
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import './db.js'
+
 import { AdminRouter } from './routes/auth.js'
 import { studentRouter } from './routes/student.js'
 import { bookRouter } from './routes/book.js'
@@ -41,5 +44,5 @@ app.get("/", (req, res) => {
 );
 
 app.listen(process.env.PORT, () => {
-    console.log("Server is Running");
+    console.log(`Server Started at  ${process.env.PORT}`);
 })
