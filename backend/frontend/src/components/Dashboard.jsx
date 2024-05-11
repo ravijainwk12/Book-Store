@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [books, setBooks] = useState(0)
 
   useEffect(() => {
-    axios.get(`${window.location.origin}/dashboard`)
+    axios.get(`http://localhost:3001/dashboard`)
     .then(res => {
       if(res.data.ok) {
         setStudents(res.data.student)

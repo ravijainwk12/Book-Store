@@ -7,7 +7,7 @@ import '../css/Books.css'
 const Books = ({role}) => {
   const [books, setBooks] = useState([])
   useEffect(() => {
-    axios.get(`${window.location.origin}/book/books`)
+    axios.get(`http://localhost:3001/book/books`)
     .then(res => {
       setBooks(res.data)
       console.log(res.data)

@@ -20,8 +20,10 @@ router.post('/add',verifyAdmin, async (req, res) => {
 })
 
 router.get('/books', async (req, res) => {
+    console.log( req );
     try {
         const books = await Book.find()
+        console.log(books);
         return res.json(books)
     }catch(err) {
         return res.json(err)
