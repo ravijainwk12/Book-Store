@@ -7,7 +7,7 @@ import '../css/Books.css'
 const Books = ({role}) => {
   const [books, setBooks] = useState([])
   useEffect(() => {
-    axios.get(`https://book-store-omega-drab.vercel.app/book/books`)
+    axios.get(`http://localhost:3001/book/books`)
     .then(res => {
       setBooks(res.data)
       console.log(res.data)

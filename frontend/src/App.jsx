@@ -17,7 +17,7 @@ function App() {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get(`https://book-store-omega-drab.vercel.app/auth/verify`)
+    axios.get(`http://localhost:3001/auth/verify`)
   
     .then(res => {
       if(res.data.login) {
