@@ -17,8 +17,11 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: ['http://localhost:5173' ,
-     'https://bookstorems.onrender.com/'],
+    // origin: ['http://localhost:5173' ,
+    //  'https://bookstorems.onrender.com/'],
+    origin: [
+        'https://bookstorems.onrender.com/'
+    ],
     credentials: true
 }))
 app.use(cookieParser())
@@ -44,12 +47,12 @@ app.get("/", (req, res) => {
  }
 );
 
-// app.listen(process.env.PORT, () => {
-//     console.log(`Server Started at  ${process.env.PORT} `);
-// })
+app.listen(process.env.PORT, () => {
+    console.log(`Server Started at  ${process.env.PORT} `);
+})
 
-const port = process.env.PORT || 3001; // Use dynamic port or default to 3001
+// const port = process.env.PORT || 3001; // Use dynamic port or default to 3001
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`Server is running on port ${port}`);
+// });
