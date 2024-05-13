@@ -13,7 +13,7 @@ const Home = () => {
             you will definitely find what you are looking for.
             </p>
         </div>
-        <div className="hero-image">
+        <div className="hero-image"  style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/home page.png)` }}>
           
         </div>
     </div>
