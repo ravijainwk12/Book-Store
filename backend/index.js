@@ -17,7 +17,8 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: ['http://localhost:5173' , "https://bookstorems-ravi-jains-projects-3fc6af80.vercel.app/"],
+    origin: ['http://localhost:5173' 
+    , "https://bookstorems-ravi-jains-projects-3fc6af80.vercel.app/"],
     credentials: true
 }))
 app.use(cookieParser())
@@ -44,5 +45,5 @@ app.get("/", (req, res) => {
 );
 
 app.listen(process.env.PORT, () => {
-    console.log(`Server Started at  ${process.env.PORT}`);
+    console.log(`Server Started at  ${process.env.PORT} `);
 })
