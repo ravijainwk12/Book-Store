@@ -10,14 +10,14 @@ const Login = ({setRoleVar}) => {
 
   axios.defaults.withCredentials = true;
   const handleSubmit = () => {
-    axios.post(`http://localhost:3001/auth/login`, {username, password, role})
+    axios.post('http://localhost:8080/auth/login', {username, password, role})
     .then(res => {
       if(res.data.login && res.data.role === 'admin') {
         setRoleVar('admin')
         navigate('/dashboard')
       } else if (res.data.login && res.data.role === 'student') {
         setRoleVar("student")
-        navigate('/books')
+        navigate('/')
       }
       console.log(res)
     })
@@ -52,4 +52,4 @@ const Login = ({setRoleVar}) => {
   )
 }
 
-export default Login;
+export default Login

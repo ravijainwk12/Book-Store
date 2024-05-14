@@ -1,4 +1,3 @@
-
 import express from 'express'
 import { Student } from '../models/Student.js';
 import bcrypt from 'bcrypt'
@@ -26,4 +25,4 @@ router.post('/register',verifyAdmin, async (req, res) => {
     }
 })
 
-export {router as studentRouter}
+export {router as studentRouter};

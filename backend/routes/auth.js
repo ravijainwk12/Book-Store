@@ -1,4 +1,3 @@
-
 import express from 'express'
 import { Admin } from '../models/Admin.js';
 import { Student } from '../models/Student.js';

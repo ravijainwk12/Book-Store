@@ -1,22 +1,21 @@
+
+
+
+
 import express from 'express';
 import dotenv from 'dotenv';
-import './db.js';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import './db.js';
 import { AdminRouter } from './routes/auth.js';
 import { studentRouter } from './routes/student.js';
 import { bookRouter } from './routes/book.js';
 import { Book } from './models/Book.js';
 import { Student } from './models/Student.js';
 import { Admin } from './models/Admin.js';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename); // Get directory name
-
-dotenv.config();
 const app = express();
+dotenv.config();
 
 app.use(express.json());
 app.use(cors({
@@ -25,27 +24,20 @@ app.use(cors({
 }));
 app.use(cookieParser());
 
-// Serve static files from the 'frontend/dist' directory
-app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
-
-// Route to serve the frontend application
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
-});
-
-// Define  API routes
+// Define API routes
 app.use('/auth', AdminRouter);
 app.use('/student', studentRouter);
 app.use('/book', bookRouter);
 
 app.get('/dashboard', async (req, res) => {
     try {
-        const student = await Student.countDocuments();
-        const admin = await Admin.countDocuments();
-        const book = await Book.countDocuments();
-        return res.json({ ok: true, student, book, admin });
+        const studentCount = await Student.countDocuments();
+        const adminCount = await Admin.countDocuments();
+        const bookCount = await Book.countDocuments();
+        return res.json({ ok: true, student: studentCount, book: bookCount, admin: adminCount });
     } catch (err) {
-        return res.json(err);
+        console.error("Error fetching dashboard data:", err);
+        return res.status(500).json({ ok: false, error: "Failed to fetch dashboard data" });
     }
 });
 

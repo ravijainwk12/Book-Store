@@ -31,6 +31,6 @@
     flex: 1;
     background: url('../public/images/home_page.png') center;
     background-size: 90%;
+    background-repeat: no-repeat;
     
   }
-  
