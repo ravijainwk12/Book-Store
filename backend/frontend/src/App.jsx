@@ -17,7 +17,7 @@ function App() {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get(`http://localhost:3001/auth/verify`)
+    axios.get(`http://localhost:3333`)
 
     // axios.get(`${process.env.REACT_APP_API_URL}/auth/verify`)
     // axios.get(`https://bookstorems.onrender.com/auth/verify` )
