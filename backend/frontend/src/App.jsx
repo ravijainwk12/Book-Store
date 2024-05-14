@@ -1,4 +1,6 @@
 
+
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -21,7 +23,7 @@ function App() {
   useEffect(() => {
     const fetchRole = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/auth/verify"); // Or use process.env.REACT_APP_API_URL
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/auth/verify`);
 
         if (response.data.login) {
           setRole(response.data.role);
