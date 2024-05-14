@@ -18,6 +18,7 @@ function App() {
   axios.defaults.withCredentials = true;
   useEffect(() => {
     axios.get(`http://localhost:3001/auth/verify`)
+
     // axios.get(`${process.env.REACT_APP_API_URL}/auth/verify`)
     // axios.get(`https://bookstorems.onrender.com/auth/verify` )
   
@@ -27,8 +28,9 @@ function App() {
       } else {
        setRole('') 
       }
-      console.log(res)
-    }).catch(err => console.log(err))
+      console.log(res);
+    })
+    .catch(err => console.log(err))
   }, [])
   return (
     <BrowserRouter>
