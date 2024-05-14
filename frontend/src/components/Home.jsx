@@ -14,7 +14,7 @@ const Home = () => {
             </p>
         </div>
         <div className="hero-image" >
-          
+        
         </div>
     </div>
   )

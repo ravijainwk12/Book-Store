@@ -28,12 +28,9 @@
 }
 
 .hero-image {
-    flex: 1;
-    
-    background: url('frontend/public/images/home page.png') center;
+    flex: 1;    
+    background: url('frontend\public\images\home page.png') center;
 
-
-    
     background-size: 90%;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
 }
