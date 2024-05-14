@@ -1,3 +1,4 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -13,38 +14,41 @@ import EditBook from "./components/EditBook";
 import DeleteBook from "./components/DeleteBook";
 
 function App() {
-  const [role, setRole] = useState('')
+  const [role, setRole] = useState("");
 
   axios.defaults.withCredentials = true;
-  useEffect(() => {
-    axios.get(`http://localhost:3333`)
 
-    // axios.get(`${process.env.REACT_APP_API_URL}/auth/verify`)
-    // axios.get(`https://bookstorems.onrender.com/auth/verify` )
-  
-    .then(res => {
-      if(res.data.login) {
-        setRole(res.data.role)
-      } else {
-       setRole('') 
+  useEffect(() => {
+    const fetchRole = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/auth/verify"); // Or use process.env.REACT_APP_API_URL
+
+        if (response.data.login) {
+          setRole(response.data.role);
+        } else {
+          setRole("");
+        }
+      } catch (error) {
+        console.error("Error fetching role:", error);
       }
-      console.log(res);
-    })
-    .catch(err => console.log(err))
-  }, [])
+    };
+
+    fetchRole(); // Call the function to fetch role
+  }, []);
+
   return (
     <BrowserRouter>
-      <Navbar role = {role}/>
+      <Navbar role={role} />
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/books" element={<Books role = {role}/>}></Route>
-        <Route path="/login" element={<Login setRoleVar = {setRole}/>}></Route>
-        <Route path="/dashboard" element={<Dashboard />}></Route>
-        <Route path="/addstudent" element={<AddStudent />}></Route>
-        <Route path="/logout" element={<Logout setRole = {setRole}/>}></Route>
-        <Route path="/addbook" element={<AddBook />}></Route>
-        <Route path="/book/:id" element={<EditBook />}></Route>
-        <Route path="/delete/:id" element={<DeleteBook />}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/books" element={<Books role={role} />} />
+        <Route path="/login" element={<Login setRole={setRole} />} />
+        <Route path="/dashboard" element={<Dashboard isAuthorized={role === "admin"} />} /> {/* Conditional rendering for authorization */}
+        <Route path="/addstudent" element={<AddStudent isAuthorized={role === "admin"} />} /> {/* Conditional rendering for authorization */}
+        <Route path="/logout" element={<Logout setRole={setRole} />} />
+        <Route path="/addbook" element={<AddBook isAuthorized={role === "admin"} />} /> {/* Conditional rendering for authorization */}
+        <Route path="/book/:id" element={<EditBook />} />
+        <Route path="/delete/:id" element={<DeleteBook />} />
       </Routes>
     </BrowserRouter>
   );

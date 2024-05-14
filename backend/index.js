@@ -49,7 +49,7 @@ app.get('/dashboard', async (req, res) => {
     }
 });
 
-const port = process.env.PORT || 3333;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
