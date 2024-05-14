@@ -19,7 +19,7 @@ dotenv.config();
 
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5173'],
+    origin: ['https://bookstore-0sde.onrender.com'],
     credentials: true
 }));
 app.use(cookieParser());
