@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 const Logout = ({setRole}) => {
     const navigate = useNavigate()
   useEffect(() => {
-    axios.get(`http://localhost:8080/auth/logout`)
+    axios.get(`https://bookstore-6rbb.onrender.com/auth/logout`)
     .then(res => {
         if(res.data.logout) {
             setRole('')

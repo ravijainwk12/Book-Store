@@ -19,7 +19,7 @@ function App() {
 
   axios.defaults.withCredentials = true;
   useEffect(() => {
-    axios.get('http://localhost:8080/auth/verify')
+    axios.get('https://bookstore-6rbb.onrender.com/auth/verify')
     .then(res => {
       if(res.data.login) {
         setRole(res.data.role)

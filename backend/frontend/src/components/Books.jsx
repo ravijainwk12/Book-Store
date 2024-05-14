@@ -7,7 +7,7 @@ import '../css/Books.css'
 const Books = ({role}) => {
   const [books, setBooks] = useState([])
   useEffect(() => {
-    axios.get(`http://localhost:8080/book/books`)
+    axios.get(`https://bookstore-6rbb.onrender.com/book/books`)
     .then(res => {
       setBooks(res.data)
       console.log(res.data)

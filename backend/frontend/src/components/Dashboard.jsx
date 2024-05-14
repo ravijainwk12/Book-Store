@@ -8,7 +8,7 @@ const Dashboard = () => {
   const [books, setBooks] = useState(0)
 
   useEffect(() => {
-    axios.get('http://localhost:8080/dashboard')
+    axios.get('https://bookstore-6rbb.onrender.com/dashboard')
     .then(res => {
       if(res.data.ok) {
         setStudents(res.data.student)
