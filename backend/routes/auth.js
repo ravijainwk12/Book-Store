@@ -181,4 +181,4 @@ router.get('/logout', (req, res) => {
     return res.json({ logout: true });
 });
 
-export { router as AdminRouter,AuthRouter, verifyAdmin, verifyUser };
+export { router as AdminRouter, verifyAdmin, verifyUser };
