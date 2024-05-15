@@ -60,6 +60,9 @@ const verifyAdmin = (req, res, next) => {
 
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
+    console.log(req);
+    console.log(req.cookies);
+    console.log(token);
     if(!token) {
         return res.json({message : "Invalid User"})
     } else {
