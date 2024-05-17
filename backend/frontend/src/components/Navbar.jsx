@@ -20,7 +20,7 @@ const Navbar = ({role}) => {
 
             {
               role === "student" && <>
-              <Link to="/books" className='navbar-link'></Link>
+              <Link to="/books" className='navbar-link'>Books</Link>
               </>
             }
             {role === "" ?

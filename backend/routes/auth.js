@@ -19,7 +19,7 @@ router.post('/login', async (req, res) => {
             return res.json({message: "wrong password"})
         }
         const token = jwt.sign({username: admin.username, role: 'admin'}, process.env.Admin_Key)
-        res.cookie('token', token, {httpOnly: true, secure: true})
+        res.cookie('token', token, {httpOnly: true, secure: true, sameSite: "none" })
         return res.json({login:true, role: 'admin'})
     } else if(role === 'student') {
         const student = await Student.findOne({username})
@@ -60,9 +60,7 @@ const verifyAdmin = (req, res, next) => {
 
 const verifyUser = (req, res, next) => {
     const token = req.cookies.token;
-    console.log(req + "verify user");
-    console.log(req.cookies + "verify cookies");
-    console.log(token +"verify token");
+   
     if(!token) {
         return res.json({message : "Invalid User"})
     } else {
