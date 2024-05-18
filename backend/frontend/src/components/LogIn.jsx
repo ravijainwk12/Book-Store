@@ -20,6 +20,8 @@ const Login = ({setRoleVar}) => {
         alert (" ✔ Student LogIn Successful. ");
         setRoleVar("student")
         navigate('/')
+      } else { 
+        alert ("❗ Wrong Username or Password.");
       }
       console.log(res)
     })
