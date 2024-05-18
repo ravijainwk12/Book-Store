@@ -8,7 +8,7 @@ const Logout = ({setRole}) => {
     axios.get(`https://bookstore-6rbb.onrender.com/auth/logout`)
     .then(res => {
         if(res.data.logout) {
-          alert ("🔺❗ You just LoggedOut.  SeeYou Soon.");
+          alert ("🔺❗ You just LoggedOut. SeeYou Soon.");
             setRole('')
             navigate('/')
         }
