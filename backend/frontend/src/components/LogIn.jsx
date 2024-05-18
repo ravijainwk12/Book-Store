@@ -21,12 +21,12 @@ const Login = ({setRoleVar}) => {
         setRoleVar("student")
         navigate('/')
       } else { 
-        alert ("❗ Wrong Username or Password.");
+        alert ("❗ ", res.data.message);
       }
       console.log(res)
     })
     .catch(err =>{ 
-      alert ("❗ Wrong Username or Password.");
+      alert ("❗", err );
       console.log(err)})
   }
 
