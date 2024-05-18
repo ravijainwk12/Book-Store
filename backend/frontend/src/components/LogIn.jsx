@@ -13,15 +13,19 @@ const Login = ({setRoleVar}) => {
     axios.post('https://bookstore-6rbb.onrender.com/auth/login', {username, password, role})
     .then(res => {
       if(res.data.login && res.data.role === 'admin') {
+        alert (" ✔ Admin LogIn Successful. ");
         setRoleVar('admin')
         navigate('/dashboard')
       } else if (res.data.login && res.data.role === 'student') {
+        alert (" ✔ Student LogIn Successful. ");
         setRoleVar("student")
         navigate('/')
       }
       console.log(res)
     })
-    .catch(err => console.log(err))
+    .catch(err =>{ 
+      alert ("❗ Wrong Username or Password.");
+      console.log(err)})
   }
 
   return (
@@ -52,4 +56,4 @@ const Login = ({setRoleVar}) => {
   )
 }
 
-export default Login
+export default Login ;
