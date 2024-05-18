@@ -13,8 +13,8 @@ const Home = () => {
             you will definitely find what you are looking for.
             </p>
         </div>
-        <div className="hero-image">
-           <img src='backend\frontend\src\css\home_page.png' />
+        <div >
+           <img src='images\home_page.png' heigth="50%" width="auto"  />
         </div>
     </div>
   )
