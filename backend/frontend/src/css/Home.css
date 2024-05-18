@@ -29,7 +29,7 @@
 
 .hero-image {
     flex: 1;
-    background: url('backend/frontend/public/images/home_page.png') center;
+    background: url('backend/frontend/public/images/bookstore_homepg.webp') center;
     background-size: 90%;
     background-repeat: no-repeat;
     
