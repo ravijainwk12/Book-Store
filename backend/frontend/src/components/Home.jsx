@@ -14,7 +14,7 @@ const Home = () => {
             </p>
         </div>
         <div className="hero-image">
-           <img src='backend\frontend\src\css\bookstore_homepg.webp' />
+           <img src='backend\frontend\src\css\home_page.png' />
         </div>
     </div>
   )
