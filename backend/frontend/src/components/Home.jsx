@@ -14,7 +14,13 @@ const Home = () => {
             </p>
         </div>
         <div className='hero-image'  >
-           <img src='images\home_page.png'/>
+           <img src='images\home_page.png' 
+            style={{
+      width: '90%',  // Adjust the size of the image
+      display: 'block',  // Ensures no extra space below the image if needed
+      margin: '0 auto'  // Center the image if it's a block element
+    }}
+           />
         </div>
     </div>
   )
