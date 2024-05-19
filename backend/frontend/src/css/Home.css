@@ -27,10 +27,10 @@
     margin-bottom: 20px;
 }
 
-/* .hero-image {
+.hero-image {
     flex: 1;
-    background: url('Images/home_page.png') center;
+    
     background-position: center;
     background-size: 90%;
     background-repeat: no-repeat;
-} */
+}
