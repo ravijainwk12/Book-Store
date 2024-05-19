@@ -1,7 +1,7 @@
 /* Hero.css */
 .hero {
     display: flex;
-    background-color: #301934;
+    background-color:  #190433;
     color: #ffc107;
     height: 92vh;
     padding-inline: 30px;
@@ -29,7 +29,8 @@
 
 .hero-image {
     flex: 1;
-    background: url('Images/home_page.png') center;
+    /* background: url('Images/home_page.png') center; */
+    background-position: center;
     background-size: 90%;
     background-repeat: no-repeat;
 }
