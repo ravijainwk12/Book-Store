@@ -13,13 +13,8 @@ const Home = () => {
             you will definitely find what you are looking for.
             </p>
         </div>
-        <div className='hero-image'  style={{
-          flex: 1,
-          background: "url('images/home_page.png') center",
-         backgroundSize: '90%',
-         backgroundRepeat: 'no-repeat'
-  }}>
-           <img src='images\home_page.png'  />
+        <div className='hero-image'  >
+           {/* <img src='images\home_page.png'  /> */}
         </div>
     </div>
   )
