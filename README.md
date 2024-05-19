@@ -57,8 +57,7 @@ Please follow the instruction to set it up.
   Create a .env file in the Backend directory and add the following variables:
 
   ```js 
-  PORT = 8080 
-  URL = "mongodb://127.0.0.1:27017/bookstore"
+ 
   Admin_Key ="admin-key "
   Student_Key = "student-key"
   ```
