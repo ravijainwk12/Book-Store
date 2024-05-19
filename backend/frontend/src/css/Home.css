@@ -29,7 +29,7 @@
 
 .hero-image {
     flex: 1;
-    background:  center;
+    background: url('images/home_page.png') center;
     background-size: 90%;
     background-repeat: no-repeat;
     
