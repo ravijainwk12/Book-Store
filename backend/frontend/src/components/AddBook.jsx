@@ -7,11 +7,12 @@ const AddBook = () => {
     const [name, setName] = useState('')
     const [author, setAuthor] = useState('')
     const [imageUrl, setImageUrl] = useState('')
+    const [downloadUrl, setDownloadUrl] = useState('');
     const navigate = useNavigate()
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        axios.post(`https://bookstore-6rbb.onrender.com/book/add`, {name, author, imageUrl})
+        axios.post(`https://bookstore-6rbb.onrender.com/book/add`, {name, author, imageUrl,downloadUrl})
         .then(res => { 
             if(res.data.added) {
                 navigate('/books')
@@ -42,6 +43,15 @@ const AddBook = () => {
           <input type="text" id="image" name="image" 
           onChange={(e) => setImageUrl(e.target.value)}/>
         </div>
+        <div className="form-group">
+                    <label htmlFor="downloadUrl">Download URL:</label>
+                    <input 
+                        type="text" 
+                        id="downloadUrl" 
+                        name="downloadUrl" 
+                        onChange={(e) => setDownloadUrl(e.target.value)} 
+                    />
+                </div>
         <button type="submit">Add </button>
       </form>
     </div>
