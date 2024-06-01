@@ -4,6 +4,8 @@ This repository contains a Book Store app built using MERN  (MongoDB, Express.js
 
 The project allows students to log in and view the available books in the store. Student registrations can only be done by the admin.
 
+The Students after the registration can Download the PDf of the available books.
+
 Please follow the instruction to set it up.
 
 
@@ -13,7 +15,7 @@ Please follow the instruction to set it up.
 
 2. Admin Panel: Admin can register students and manage the bookstore.
 
-3. Book Availability: Students can see which books are available in the store.
+3. Book Availability: Students can see which books are available in the store and after the registration students can download the Books that are available.
 
 4. Responsive Design: The application is designed to be responsive and work well on different devices.
 
