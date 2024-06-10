@@ -16,7 +16,7 @@ router.post('/login', async (req, res) => {
         }
         const validPassword = await bcrypt.compare(password, admin.password)
         if(!validPassword) {
-            return res.json({message: "wrong password"})
+            return res.status(400).json({message: "wrong password"})
         }
         const token = jwt.sign({username: admin.username, role: 'admin'}, process.env.Admin_Key)
         res.cookie('token', token, {httpOnly: true, secure: true, sameSite: "none" })
@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
         }
         const validPassword = await bcrypt.compare(password, student.password)
         if(!validPassword) {
-            return res.json({message: "wrong password"})
+            return res.status(400).json({message: "wrong password"})
         }
         const token = jwt.sign({username: student.username, role: 'student'}, process.env.Student_Key)
         res.cookie('token', token, {httpOnly: true, secure: true})
@@ -46,7 +46,7 @@ const verifyAdmin = (req, res, next) => {
     } else {
         jwt.verify(token, process.env.Admin_Key, (err, decoded) => {
             if(err) {
-                return res.status(400).json({message: "Invalid token"})
+                return res.status(401).json({message: "Invalid token"})
             } else {
                 req.username = decoded.username;
                 req.role = decoded.role;
