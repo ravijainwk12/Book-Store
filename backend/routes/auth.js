@@ -16,7 +16,7 @@ router.post('/login', async (req, res) => {
         }
         const validPassword = await bcrypt.compare(password, admin.password)
         if(!validPassword) {
-            return res.status(400).json({message: "wrong password"})
+            return res.json({message: "wrong password"})
         }
         const token = jwt.sign({username: admin.username, role: 'admin'}, process.env.Admin_Key)
         res.cookie('token', token, {httpOnly: true, secure: true, sameSite: "none" })
@@ -24,11 +24,11 @@ router.post('/login', async (req, res) => {
     } else if(role === 'student') {
         const student = await Student.findOne({username})
         if(!student) {
-            return res.status(400).json({message: "student not registered"})
+            return res.json({message: "student not registered"})
         }
         const validPassword = await bcrypt.compare(password, student.password)
         if(!validPassword) {
-            return res.status(400).json({message: "wrong password"})
+            return res.json({message: "wrong password"})
         }
         const token = jwt.sign({username: student.username, role: 'student'}, process.env.Student_Key)
         res.cookie('token', token, {httpOnly: true, secure: true})
