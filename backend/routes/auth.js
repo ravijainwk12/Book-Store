@@ -12,7 +12,7 @@ router.post('/login', async (req, res) => {
     if(role === 'admin') {
         const admin = await Admin.findOne({username})
         if(!admin) {
-            return res.json({message: "admin not registered"})
+            return res.status(400).json({message: "admin not registered"})
         }
         const validPassword = await bcrypt.compare(password, admin.password)
         if(!validPassword) {
@@ -24,7 +24,7 @@ router.post('/login', async (req, res) => {
     } else if(role === 'student') {
         const student = await Student.findOne({username})
         if(!student) {
-            return res.json({message: "student not registered"})
+            return res.status(400).json({message: "student not registered"})
         }
         const validPassword = await bcrypt.compare(password, student.password)
         if(!validPassword) {
